@@ -20,18 +20,27 @@ insert into restaurant values
 
 SELECT NAME FROM restaurant WHERE STARS = 5;
 
-restaurant_db=# SELECT NAME FROM restaurant WHERE STARS = 5;
-    name
-------------
- Naan-stop
- CraftSteak
-(2 rows)
 
+SELECT FAVORITE_DISH FROM RESTAURANT WHERE STARS = 5;
 
-               ^
-restaurant_db=# SELECT FAVORITE_DISH FROM RESTAURANT WHERE STARS = 5;
- favorite_dish
----------------
- goats
- steak
-(2 rows)
+select id from restaurant where name = 'Naan-stop';
+
+select * from restaurant where does_takeout = True;
+
+select name from restaurant where does_takeout = true and category = 'CHIKIN';
+
+select * from restaurant where distance < 2;
+
+select * from restaurant where last_time_ate_there >= current_date - interval '2 weeks' and stars = 4;
+
+select * from restaurant order by distance;
+
+select * from restaurant order by distance limit 2;
+
+select * from restaurant order by stars desc limit 2;
+
+select category, count(*) from restaurant group by category;
+
+select avg(stars), category from restaurant group by category;
+
+select round(avg(stars), 2), category from restaurant group by category;
